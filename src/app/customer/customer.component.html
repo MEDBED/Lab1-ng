@@ -1,0 +1,41 @@
+<div class="componentBody">
+  <div [hidden]="IsAddNew">
+    <H1>Hello From Customer </H1>
+    <hr>
+    <h1>Customers List</h1>
+    <input type="button" (click)="AddNew()" value="Add +"><br><br>
+    <table border="'1">
+      <tr>
+        <th>N°</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+      </tr>
+      <tr *ngFor=" let customer of Customers; let index = index">
+        <td>{{index}}</td>
+        <td>{{customer.FName}}</td>
+        <td>{{customer.LName}}</td>
+      </tr>
+    </table>
+  </div>
+  <div [hidden]="!IsAddNew">
+    <h1>Add Customer</h1>
+    First Name: <input type="text" name="Fname" [(ngModel)]="this.FName" #F="ngModel" minlength="3" required><br>
+    <br>
+    <div>
+      <span [hidden]="!(F.dirty && F.errors?.required)">Enter First Name!</span>
+      <span [hidden]="!(F.dirty && F.errors?.minlength)">Minimum three characters needed for First NAME !</span>
+    </div>
+    <br>
+
+    Last Name: <input type="text" name="Lname"  [(ngModel)]="this.LName"  #L="ngModel" minlength="3" required><br>
+    <div>
+      <span [hidden]="!(L.dirty && L.errors?.required)">Enter Last Name!</span><br>
+      <span [hidden]="!(L.dirty && L.errors?.minlength)">Minimum three characters needed for Last NAME !</span>
+    </div>
+
+    <br>
+    <input type="button" (click)="save()" value="Add">&nbsp;
+    <input type="button" (click)="rest()" value="Cancel">
+  </div>
+
+</div>
