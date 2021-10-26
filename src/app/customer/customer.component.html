@@ -27,7 +27,7 @@
     </div>
     <br>
 
-    Last Name: <input type="text" name="Lname"  [(ngModel)]="this.LName"  #L="ngModel" minlength="3" required><br>
+    Last Name: <input type="text" name="Lname" [(ngModel)]="this.LName" #L="ngModel" minlength="3" required><br>
     <div>
       <span [hidden]="!(L.dirty && L.errors?.required)">Enter Last Name!</span><br>
       <span [hidden]="!(L.dirty && L.errors?.minlength)">Minimum three characters needed for Last NAME !</span>
