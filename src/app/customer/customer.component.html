@@ -1,10 +1,10 @@
 <div class="componentBody">
   <div [hidden]="IsAddNew">
     <H1>Hello From Customer </H1>
-    <hr>
-    <h1>Customers List</h1>
-    <input type="button" (click)="AddNew()" value="Add +"><br><br>
-    <table border="'1">
+    <hr><br>
+    <h1>Customers List:</h1><h1>has {{Customers.length}} element</h1>
+    <input type="button" class="button" (click)="AddNew()" value="Add +"><br><br>
+    <table id="customers">
       <tr>
         <th>N°</th>
         <th>First Name</th>
@@ -17,7 +17,7 @@
       </tr>
     </table>
   </div>
-  <div [hidden]="!IsAddNew">
+  <div [hidden]="!IsAddNew" ngForm #myForm="ngForm">
     <h1>Add Customer</h1>
     First Name: <input type="text" name="Fname" [(ngModel)]="this.FName" #F="ngModel" minlength="3" required><br>
     <br>
@@ -34,8 +34,8 @@
     </div>
 
     <br>
-    <input type="button" (click)="save()" value="Add">&nbsp;
-    <input type="button" (click)="rest()" value="Cancel">
+    <input type="button" (click)="save()" class="button" value="Save" [disabled]="myForm.invalid">&nbsp;
+    <input type="button" (click)="rest()" class="button"  value="Cancel">
   </div>
 
 </div>
