@@ -1,8 +1,10 @@
 <div class="componentBody">
   <div [hidden]="IsAddNew">
     <H1>Hello From Customer </H1>
-    <hr><br>
-    <h1>Customers List:</h1><h1>has {{Customers.length}} element</h1>
+    <hr>
+    <br>
+    <h1>Customers List:</h1>
+    <h1>has {{Customers.length}} element</h1>
     <input type="button" class="button" (click)="AddNew()" value="Add +"><br><br>
     <table id="customers">
       <tr>
@@ -19,23 +21,26 @@
   </div>
   <div [hidden]="!IsAddNew" ngForm #myForm="ngForm">
     <h1>Add Customer</h1>
-    First Name: <input type="text" name="Fname" [(ngModel)]="this.FName" #F="ngModel" minlength="3" required><br>
-    <br>
-    <div>
+    First Name: <input type="text" name="Fname" [(ngModel)]="this.FName" #F="ngModel" minlength="3" required>
+    <br><br>
+    <div class="alert" [hidden]="!(F.dirty && F.errors?.required) && !(F.dirty && F.errors?.minlength)">
+      <span class="closebtn"><i class="material-icons">error</i></span>
       <span [hidden]="!(F.dirty && F.errors?.required)">Enter First Name!</span>
       <span [hidden]="!(F.dirty && F.errors?.minlength)">Minimum three characters needed for First NAME !</span>
     </div>
     <br>
 
-    Last Name: <input type="text" name="Lname" [(ngModel)]="this.LName" #L="ngModel" minlength="3" required><br>
-    <div>
-      <span [hidden]="!(L.dirty && L.errors?.required)">Enter Last Name!</span><br>
+    Last Name: <input type="text" name="Lname" [(ngModel)]="this.LName" #L="ngModel" minlength="3" required>
+    <br><br>
+    <div class="alert" [hidden]="!(L.dirty && L.errors?.required) && !(L.dirty && L.errors?.minlength)">
+      <span class="closebtn"><i class="material-icons">error</i></span>
+      <span [hidden]="!(L.dirty && L.errors?.required)">Enter Last Name!</span>
       <span [hidden]="!(L.dirty && L.errors?.minlength)">Minimum three characters needed for Last NAME !</span>
     </div>
 
     <br>
     <input type="button" (click)="save()" class="button" value="Save" [disabled]="myForm.invalid">&nbsp;
-    <input type="button" (click)="rest()" class="button"  value="Cancel">
+    <input type="button" (click)="rest()" class="button" value="Cancel">
   </div>
 
 </div>
