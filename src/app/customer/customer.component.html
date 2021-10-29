@@ -21,7 +21,8 @@
   </div>
   <div [hidden]="!IsAddNew" ngForm #myForm="ngForm">
     <h1>Add Customer</h1>
-    First Name: <input type="text" name="Fname" [(ngModel)]="this.FName" #F="ngModel" minlength="3" required>
+    First Name: <input type="text" name="Fname" [(ngModel)]="this.FName" #F="ngModel" class="form-control"
+                       [ngClass]="{'is-valid': F.valid,'is-invalid': F.invalid}" minlength="3" required>
     <br><br>
     <div class="alert" [hidden]="!(F.dirty && F.errors?.required) && !(F.dirty && F.errors?.minlength)">
       <span class="closebtn"><i class="material-icons">error</i></span>
@@ -30,7 +31,8 @@
     </div>
     <br>
 
-    Last Name: <input type="text" name="Lname" [(ngModel)]="this.LName" #L="ngModel" minlength="3" required>
+    Last Name: <input type="text" name="Lname" [(ngModel)]="this.LName" #L="ngModel" class="form-control"
+                      [ngClass]="{'is-valid': L.valid,'is-invalid': L.invalid}" minlength="3" required>
     <br><br>
     <div class="alert" [hidden]="!(L.dirty && L.errors?.required) && !(L.dirty && L.errors?.minlength)">
       <span class="closebtn"><i class="material-icons">error</i></span>
