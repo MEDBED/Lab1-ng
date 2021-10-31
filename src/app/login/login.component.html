@@ -1,6 +1,8 @@
-<div class="container-fluid pt-3">
+<div class="container-fluid w-25 pt-3">
   <div class="card">
-    <h5 class="card-header">Login</h5>
+    <h5 class="card-header d-flex justify-content-center">
+      <img src="assets/logn-with-png.png" alt="CoffeeScript">
+    </h5>
     <div class="card-body" [formGroup]="loginForm">
       <div class="form-group">
         <label for="userName"> User Name: </label>
@@ -29,7 +31,7 @@
         </div>
       </div>
     </div>
-    <div class="card-footer">
+    <div class="card-footer d-flex justify-content-center">
       <input type="button" class="btn btn-success" value="Login" [disabled]="loginForm.invalid">
     </div>
   </div>
